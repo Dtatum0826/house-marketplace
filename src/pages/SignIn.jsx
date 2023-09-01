@@ -3,7 +3,8 @@ import { useState } from 'react'
 import{Link, useNavigate} from 'react-router-dom'
 import {ReactComponent as ArrowRightIcon} from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from'../assets/svg/visibilityIcon.svg'
-import { unstable_renderSubtreeIntoContainer } from 'react-dom'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+
 
 function SignIn() {
 
@@ -22,7 +23,23 @@ setFormData((prevState)=>({
     [e.target.id]: e.target.value
 }))
 }
+const onSubmit = async (e)=>{
+    e.preventDefault()
 
+    try {
+        const auth = getAuth()
+
+        const userCredential = await signInWithEmailAndPassword(auth,email,password)
+   
+        if(userCredential.user){
+            navigate('/')
+        }
+    } catch (error) {
+        console.log(error)
+    }
+
+  
+}
   return (
   <>
   <div className="pageContainer">
@@ -32,12 +49,13 @@ setFormData((prevState)=>({
         </p>
     </header>
     <main>
-        <form>
+        <form onSubmit= {onSubmit}>
            <input 
             type="email" 
             className="emailInput"
             placeholder='Email' 
-            id='email' value={email} 
+            id='email'
+            value={email} 
             onChange={onChange} 
             /> 
 
