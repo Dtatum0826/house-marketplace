@@ -1,4 +1,6 @@
 import React from 'react'
+import { toast } from 'react-toastify'
+
 import { useState } from 'react'
 import{Link, useNavigate} from 'react-router-dom'
 import {ReactComponent as ArrowRightIcon} from '../assets/svg/keyboardArrowRightIcon.svg'
@@ -35,7 +37,7 @@ const onSubmit = async (e)=>{
             navigate('/')
         }
     } catch (error) {
-        console.log(error)
+        toast.error('Bad User Credentials')
     }
 
   
