@@ -8,11 +8,12 @@ import{
   where,
   orderBy,
   limit,
-  startAfter
+  
 } from 'firebase/firestore'
 import{db} from '../firebase.config'
 import{toast} from 'react-toastify'
 import Spinner from '../components/Spinner'
+import LisitngItem from '../components/LisitngItem'
 
 function Category() {
  const [listings, setListings] = useState(null)
@@ -20,13 +21,13 @@ function Category() {
 
  const params = useParams()
 
+ 
  useEffect(()=>{
   const fecthListings = async () =>{
     try {
       const listingsRef = collection(db,'listings')
-      console.log(`listingsRef: ${listingsRef}`)
-      // let listingsRefJson =JSON.stringify(listingsRef)
-      //   console.log(`ListingRef : ${listingsRefJson}`)
+     
+    
       
       const q = query(
         listingsRef,
@@ -34,10 +35,10 @@ function Category() {
          orderBy('timestamp', 'desc'),
          limit(10)
          )
+         
         const querySnap = await getDocs(q)
-        console.log(`querySnap: ${querySnap}`)
-        //  let querySnapJson = JSON.stringify(querySnap)
-      // console.log(`QuerySnap: ${querySnapJson.doc.data()}`)
+       
+       
         
        let listings =[]
         querySnap.forEach((doc)=>{
@@ -69,7 +70,11 @@ function Category() {
       <main>
         <ul className='categoryListings'>
           {listings.map((listing)=>(
-            <h3 key={listing.id}>{listing.data.name}</h3>
+           <LisitngItem 
+           listing={listing.data} 
+           id={listing.id}
+           key={listing.id}
+           />
           ))}
         </ul>
       </main>
