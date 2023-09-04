@@ -25,9 +25,33 @@ function CreateListing() {
     
     })
 
+    const {
+        type,
+        name,
+        bedrooms,
+        bathrooms,
+        parking,
+        furnished,
+        address,
+        offer,
+        regularPrice,
+        discountedPrice,
+        images,
+        latitude,
+        longitude
+    } = formData
+
     const auth = getAuth()
     const navigate = useNavigate()
     const isMounted = useRef(true)
+
+
+    const onSubmit = (e)=>{
+        e.preventDefault()
+    }
+    const onMutate = (e)=>{
+        
+    }
 
     useEffect(()=>{
         if(isMounted){
@@ -48,8 +72,39 @@ function CreateListing() {
         return <Spinner/>
     }
   return (
-    <div>
-      Create
+    <div className='profile'>
+     <header>
+        <p className="pageHeader">Create a Listing</p>
+     </header>
+
+     <main>
+        <form onSubmit={onSubmit}>
+            <label  className="formLabel">Sell / Rent</label>
+            <div className="formButtons">
+                <button type='button' className={
+                    type === 'sale' 
+                ? 'formButtonActive'
+                : 'formButton'}
+                id='type'
+                value={'sale'}
+                onClick={onMutate}
+                >
+                    Sell
+                </button>
+                <button type='button' className={
+                    type === 'rent' 
+                ? 'formButtonActive'
+                : 'formButton'}
+                id='type'
+                value={'rent'}
+                onClick={onMutate}
+                >
+                    Rent
+                </button>
+            </div>
+           
+        </form>
+     </main>
     </div>
   )
 }
