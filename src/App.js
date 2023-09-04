@@ -7,6 +7,7 @@ import Offers from "./pages/Offers";
 import SignIn from "./pages/SignIn"; 
 import SignUp from "./pages/SignUp";
 import Category from "./pages/Category";
+import CreateListing from "./pages/CreateListing";
 import ForgotPassword from "./pages/ForgotPassword";
 import PrivateRoute from "./components/PrivateRoute";
 import NavBar from "./components/NavBar";
@@ -22,6 +23,7 @@ function App() {
         <Route path='/profile' element={<PrivateRoute/>}>
           <Route path="/profile" element={<Profile/>}/>
         </Route>
+          <Route path='/create-listing' element={<CreateListing/>}/>
         <Route path='/sign-in' element= {<SignIn/>}/>
         <Route path='/sign-up' element= {<SignUp/>}/>
         <Route path='/forgot-password' element= {<ForgotPassword/>}/>
