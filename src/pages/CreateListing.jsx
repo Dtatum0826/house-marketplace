@@ -2,6 +2,7 @@ import React from 'react'
 import {useState, useEffect,useRef} from 'react'
 import {getAuth, onAuthStateChanged} from 'firebase/auth'
 import{getStorage, ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage'
+import{ addDoc, collection, serverTimestamp} from 'firebase/firestore'
 import{db} from '../firebase.config'
 import { useNavigate } from 'react-router-dom'
 import Spinner from '../components/Spinner'
@@ -146,9 +147,22 @@ function CreateListing() {
             setLoading(false)
             toast.error('Images not uploaded')
          })
-            console.log(imageUrls)
+           const formDataCopy ={
+            ...formData,
+            imageUrls,
+            geolocation,
+            timestamp: serverTimestamp()
+           }
 
-            setLoading(false)
+           delete formDataCopy.images
+           delete formDataCopy.address
+           location && (formDataCopy.location = location)
+           !formDataCopy.offer && delete formDataCopy.discountedPrice
+
+           const docRef = await addDoc(collection(db,'listings'),formDataCopy)
+             setLoading(false)
+             toast.success('Saved')
+             navigate(`/category/${formDataCopy.type}/${docRef.id}`)
     }
     const onMutate = (e)=>{
         let boolean = null
