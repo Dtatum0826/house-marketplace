@@ -83,7 +83,7 @@ function CreateListing() {
             0
             geolocation.lng = data.results[0]?.geometry.location.lng ??
             0
-            location = data.status = 'ZERI_RESULTS' 
+            location = data.status = 'ZERO_RESULTS' 
             ? undefined 
             : data.results[0]?.formatted_address
 
@@ -419,12 +419,12 @@ function CreateListing() {
                 <label  className="formLabel">Images</label>
                 <p className="imagesInfo">The first image will be the cover (max 6).</p>
                 <input 
-                type="file" 
-                className="formInputFile" 
+                className='formInputFile' 
+                type='file' 
                 id='images'
                 onChange={onMutate}
                 max='6'
-                accept='.jpg,.png,jpeg'
+                accept='.jpg,.png,.jpeg'
                 multiple
                 required
                 />
