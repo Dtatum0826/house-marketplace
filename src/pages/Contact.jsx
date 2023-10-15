@@ -40,7 +40,7 @@ const onChange = (e)=>{
       <main>
         <div className="contactLandlord">
           <p className="landlordName">
-            Conatact {landlord?.name}
+            Contact {landlord?.name}
           </p>
         </div>
         <form  className="messageForm">
