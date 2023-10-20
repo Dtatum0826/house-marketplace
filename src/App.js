@@ -9,6 +9,7 @@ import SignUp from "./pages/SignUp";
 import Category from "./pages/Category";
 import CreateListing from "./pages/CreateListing";
 import Listing from "./pages/Listing";
+import EditListing from "./pages/EditListing";
 import Contact from "./pages/Contact";
 import ForgotPassword from "./pages/ForgotPassword";
 import PrivateRoute from "./components/PrivateRoute";
@@ -31,6 +32,7 @@ function App() {
         <Route path='/forgot-password' element= {<ForgotPassword/>}/>
         <Route path='/category/:categoryName/:listingId' element={<Listing/>}/>
         <Route path='/contact/:landlordId' element={<Contact />} />
+        <Route path='/edit-listing/:listingId' element={<EditListing/>}/>
       </Routes>
       <NavBar/>
     </Router>
