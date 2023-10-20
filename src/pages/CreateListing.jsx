@@ -432,7 +432,7 @@ function CreateListing() {
                className="primaryButton createListingButton" 
                type='submit'
                >
-                Creat Listing
+                Create Listing
                 </button> 
         </form>
      </main>
