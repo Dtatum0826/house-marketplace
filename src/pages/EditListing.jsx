@@ -11,6 +11,7 @@ import {v4 as uuidv4} from 'uuid'
 
 
 function EditListing() {
+    //eslint-disable-next-line
     const [geolocationEnabled, setGeolocationEnabled] = useState(true)
     const [loading, setLoading] = useState(false)
     const [listing, setListing] = useState(false)
@@ -85,6 +86,7 @@ function EditListing() {
             0
             geolocation.lng = data.results[0]?.geometry.location.lng ??
             0
+             //eslint-disable-next-line
             location = data.status = 'ZERO_RESULTS' 
             ? undefined 
             : data.results[0]?.formatted_address
@@ -119,6 +121,7 @@ function EditListing() {
                             (snapshot.bytesTransferred / snapshot.totalBytes)
                             * 100
                             console.log('Upload is' + progess + '% done')
+                            //eslint-disable-next-line
                             switch(snapshot.state){
                                 case 'paused' :
                                     console.log('Upload is paused')
