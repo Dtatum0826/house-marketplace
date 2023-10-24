@@ -172,6 +172,7 @@ function Profile() {
           </>
         )}
       </main>
+      <div className="show-on-small-screen"></div>
     </div>
   )
 }
