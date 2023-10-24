@@ -825,7 +825,7 @@ button {
 }
 .show-on-small-screen-profile{
   display: none; /* This hides the element by default */
-  margin-top: 300px;
+  margin-top: 400px;
 }
 
 @media (max-width: 768px) {
