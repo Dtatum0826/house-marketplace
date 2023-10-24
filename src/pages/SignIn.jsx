@@ -95,6 +95,7 @@ const onSubmit = async (e)=>{
             Sign Up Instead
         </Link>
     </main>
+    <div className="show-on-small-screen"></div>
   </div>
   </>
   )
