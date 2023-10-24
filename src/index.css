@@ -823,6 +823,10 @@ button {
   display: none; /* This hides the element by default */
   margin-top: 200px;
 }
+.show-on-small-screen {
+  display: none; /* This hides the element by default */
+  margin-top: 300px;
+}
 
 @media (max-width: 768px) {
   .show-on-small-screen {
