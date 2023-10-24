@@ -819,3 +819,13 @@ button {
   font-size: 0.8rem;
   opacity: 0.75;
 }
+.show-on-small-screen {
+  display: none; /* This hides the element by default */
+  margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+  .show-on-small-screen {
+    display: block; /* This displays the element when the screen width is 768px or smaller */
+  }
+}

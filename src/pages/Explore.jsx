@@ -32,6 +32,7 @@ function Explore() {
         </Link>
       </div>
      </main>
+     <div className="show-on-small-screen"></div>
     </div>
   )
 }
