@@ -172,7 +172,7 @@ function Profile() {
           </>
         )}
       </main>
-      <div className="show-on-small-screen profile"></div>
+      <div className="show-on-small-screen-profile"></div>
     </div>
   )
 }
